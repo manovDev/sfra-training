@@ -8,6 +8,8 @@ var server = require('server');
 var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
+var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
+
 /**
  * Any customization on this endpoint, also requires update for Default-Start endpoint
  */
@@ -24,6 +26,8 @@ var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
  */
 server.get(
     'Show',
+    server.middleware.https,
+    userLoggedIn.validateLoggedIn,
     consentTracking.consent,
     cache.applyDefaultCache,
     function (req, res, next) {
