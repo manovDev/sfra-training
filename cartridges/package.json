@@ -1,12 +1,12 @@
 {
-  "name": "int_twilio",
+  "name": "app_test_cartrige",
   "version": "0.0.1",
   "description": "New overlay cartridge",
   "main": "index.js",
   "scripts": {
     "lint": "sgmf-scripts --lint js && sgmf-scripts --lint css",
     "upload": "sgmf-scripts --upload -- ",
-    "uploadCartridge": "sgmf-scripts --uploadCartridge int_twilio",
+    "uploadCartridge": "sgmf-scripts --uploadCartridge app_test_cartrige",
     "compile:js": "sgmf-scripts --compile js",
     "compile:scss": "sgmf-scripts --compile css"
   },

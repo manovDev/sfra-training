@@ -1,0 +1,3 @@
+<p>${pdict.result.name}, ${pdict.result.manufacturer}, ${pdict.result.starship_class}</p>
+<iscomment> ‘name’,‘manufacturer’, ‘starship_class’, </iscomment>
+<iscomment> <p>TEETETETETTEESTTSTTT</p> </iscomment>

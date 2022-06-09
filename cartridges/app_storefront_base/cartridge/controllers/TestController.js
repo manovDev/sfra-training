@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @namespace Home
+ * @namespace TestController
  */
 
 var server = require('server');
@@ -13,10 +13,10 @@ var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
  * Any customization on this endpoint, also requires update for Default-Start endpoint
  */
 /**
- * Home-Show : This endpoint is called when a shopper navigates to the home page 
- * @name Base/Home-Show
+ * TestController-Show : This endpoint is called when a shopper navigates to the TestController page 
+ * @name Base/TestController-Show
  * @function
- * @memberof Home
+ * @memberof TestController
  * @param {middleware} - consentTracking.consent
  * @param {middleware} - cache.applyDefaultCache
  * @param {category} - non-sensitive
@@ -25,31 +25,25 @@ var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
  */
 server.get(
     'Show',
-    server.middleware.https,
-    // userLoggedIn.validateLoggedIn,
     consentTracking.consent,
     cache.applyDefaultCache,
     function (req, res, next) {
     var Site = require('dw/system/Site');
-    var PageMgr = require('dw/experience/PageMgr');
-    var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
-
-    pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
-
-    var page = PageMgr.getPage('homepage');
-
-    if (page && page.isVisible()) {
-        res.page('homepage');
-    } else {
-        res.render('home/homePage');
-    }
+    res.render('test/home', {
+        welcomeMsg: "user"
+    });
     next();
 }, pageMetaData.computedPageMetaData);
 
-server.get('ErrorNotFound', function (req, res, next) {
-    res.setStatusCode(404);
-    res.render('error/notFound');
+server.get(
+    'Include',
+    server.middleware.include,
+    function (req, res, next) {
+    var Site = require('dw/system/Site');
+    res.render('test/homePartial', {
+        welcomeMsg: "user"
+    });
     next();
-});
+}, pageMetaData.computedPageMetaData);
 
 module.exports = server.exports();

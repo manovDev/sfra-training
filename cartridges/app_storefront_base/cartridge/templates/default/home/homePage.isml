@@ -6,7 +6,7 @@
     </isscript>
 
     <!-- +1.888.555.0199 --><!--This phone is a requirement to support existing Gomez monitor of SiteGenesis. Demandware customers can remove this.-->
-    <div class="home-main homepage">
+    <iscomment> <div class="home-main homepage">
         <isslot id="home-main-m" description="Main home page slot." context="global" />
     </div>
 
@@ -20,12 +20,20 @@
         <div class="hp-product-grid" itemtype="http://schema.org/SomeProducts" itemid="#product">
             <isslot id="home-products-m" description="Product tiles on the home page." context="global" />
         </div>
+    </div> </iscomment>
+
+    <div class="container home-product-tiles homepage">
+        <div class="hp-product-grid" itemtype="http://schema.org/SomeProducts" itemid="#product">
+            <isslot id="Test" description="Test slots on the home page." context="global" />
+        </div>
     </div>
 
     <div class="homepage shop-the-style">
+    <isinclude url="${URLUtils.url('SwapiDeathStar-Show')}" />
+    
         <isslot id="home-product-set-m" description="Link to a Product Set." context="global" />
     </div>
-    <div class="home-email-signup">
+    <iscomment> <div class="home-email-signup">
         <div class="container">
             <form role="form">
                 <div class="row">
@@ -41,5 +49,5 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> </iscomment>
 </isdecorate>

@@ -1,7 +1,7 @@
 <isinclude template="/components/modules" />
 
 <div class="homepage-product-listing row">
-
+asdasdas
     <isloop items="${slotcontent.content}" var="product" status="loopState">
 
         <div class="col-6 col-sm-4">
@@ -11,7 +11,7 @@
         <isif condition="${loopState.count == 1}" >
             <div class="card col-6 col-sm-4 hp-product-content">
                 <div class="card-body">
-                    <iscontentasset aid="home-product-tile-content" />
+                    <iscomment> <iscontentasset aid="home-product-tile-content" /> </iscomment>
                 </div>
             </div>
         </isif>

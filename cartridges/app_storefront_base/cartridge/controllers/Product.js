@@ -5,7 +5,7 @@
  */
 
 var server = require('server');
-
+// var HookMgr = require('dw/system/HookMgr');
 var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
@@ -33,6 +33,13 @@ var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
   * @param {serverfunction} - get
   */
 server.get('Show', cache.applyPromotionSensitiveCache, consentTracking.consent, function (req, res, next) {
+    // if(HookMgr.hasHook('dw.order.calculate')) {
+    //     HookMgr.callHook(
+    //         'dw.order.calculate',
+    //         'calculate'
+    //     );
+    // }
+
     var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
     var showProductPageHelperResult = productHelper.showProductPage(req.querystring, req.pageMetaData);
     var productType = showProductPageHelperResult.product.productType;
